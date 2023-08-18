@@ -18,6 +18,18 @@ steps:
   displayName: 'Get tools'
 
 - script: |
-    terrascan scan -t azure -i terraform
+    terrascan scan -t azure -i terraform --output junit-xml > $(Build.DefaultWorkingDirectory)/terrascan-results.xml
   workingDirectory: $(System.DefaultWorkingDirectory)/infrastructure/storage-account
   displayName: 'Run terrascan'  
+
+- task: PublishTestResults@2
+  displayName: "Terrascan Results"
+  condition: succeededOrFailed()
+  inputs:
+      testResultsFormat: "JUnit"
+      testResultsFiles: "**/terrascan-*.xml"
+      searchFolder: "$(Build.DefaultWorkingDirectory)"
+      mergeTestResults: false
+      testRuntitle: Terrascan
+      failTaskOnFailedTests: true
+      publishRunAttachments: true
