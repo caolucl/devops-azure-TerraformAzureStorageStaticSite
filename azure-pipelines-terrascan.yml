@@ -25,7 +25,7 @@ steps:
   displayName: 'Run terrascan'  
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)infrastructure/storage-account/terrascan-results.xml'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/infrastructure/storage-account/terrascan-results.xml'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
