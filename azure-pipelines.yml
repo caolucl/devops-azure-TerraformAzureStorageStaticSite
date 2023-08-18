@@ -157,8 +157,8 @@ stages:
       displayName: 'ARM Template deployment: Resource Group scope'
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: '$(armConnection)'
-        subscriptionId: '$(subscription_id)'
+        azureResourceManagerConnection: 'ConnectedServiceNameARM'
+        subscriptionId: '2f858c57-6594-463c-b525-a5d7afec60cf'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resource_group_tfstate)'
         location: '$(location)'
