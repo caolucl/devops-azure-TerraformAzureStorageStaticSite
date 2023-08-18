@@ -24,14 +24,14 @@ steps:
   workingDirectory: $(System.DefaultWorkingDirectory)/infrastructure/storage-account
   displayName: 'Run terrascan'  
 
+
 - task: PublishTestResults@2
   displayName: "Terrascan Results"
   condition: succeededOrFailed()
   inputs:
-      testResultsFormat: "JUnit"
-      testResultsFiles: "**/terrascan-results.xml"
-      searchFolder: "$(System.DefaultWorkingDirectory)/infrastructure/storage-account"
-      mergeTestResults: false
-      testRuntitle: Terrascan
-      failTaskOnFailedTests: true
-      publishRunAttachments: true
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/terrascan-results.xml'
+    searchFolder: '$(System.DefaultWorkingDirectory)/infrastructure/storage-account'
+    failTaskOnFailedTests: true
+    testRunTitle: 'Terrascan'
+    publishRunAttachments: true
