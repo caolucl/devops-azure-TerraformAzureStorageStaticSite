@@ -23,7 +23,11 @@ steps:
     pwd
   workingDirectory: $(System.DefaultWorkingDirectory)/infrastructure/storage-account
   displayName: 'Run terrascan'  
-
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/terrascan-results.xmlinfrastructure/storage-account'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 - task: PublishTestResults@2
   displayName: "Terrascan Results"
