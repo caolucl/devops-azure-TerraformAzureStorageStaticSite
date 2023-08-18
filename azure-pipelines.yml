@@ -1,8 +1,8 @@
 trigger:
-- master
+- none
 
 variables:
-  resource_group_tfstate: 'tfstate-uks-rg'
+  resource_group_tfstate: 'tfstate-sea-rg'
   product: 'staticsite'
   shortcode: 'lg'  
 
@@ -31,9 +31,9 @@ stages:
 - stage: dev
   dependsOn: validate
   variables:    
-    location: 'uksouth'        
+    location: 'southeastasia'        
     environment_name: 'dev'
-    location_short_code: 'uks'
+    location_short_code: 'sea'
     backendAzureRmContainerName: tfstate
     backendAzureRmKey: tfdev  
 
@@ -48,8 +48,8 @@ stages:
       displayName: 'ARM Template deployment: Resource Group scope'
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: '$(armConnection)'
-        subscriptionId: '$(subscription_id)'
+        azureResourceManagerConnection: 'ConnectedServiceNameARM'
+        subscriptionId: '2f858c57-6594-463c-b525-a5d7afec60cf'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resource_group_tfstate)'
         location: '$(location)'
@@ -139,9 +139,9 @@ stages:
   dependsOn: dev
 
   variables:    
-    location: 'uksouth'        
+    location: 'southeastasia'        
     environment_name: 'prod'
-    location_short_code: 'uks'
+    location_short_code: 'sea'
     backendAzureRmContainerName: tfstate
     backendAzureRmKey: tfprod
 
