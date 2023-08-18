@@ -18,7 +18,7 @@ steps:
   displayName: 'Get tools'
 
 - script: |
-    terrascan scan -t azure -i terraform --output junit-xml > ${Build.DefaultWorkingDirectory}/terrascan-results.xml
+    terrascan scan -t azure -i terraform --output junit-xml > terrascan-results.xml
   workingDirectory: $(System.DefaultWorkingDirectory)/infrastructure/storage-account
   displayName: 'Run terrascan'  
 
