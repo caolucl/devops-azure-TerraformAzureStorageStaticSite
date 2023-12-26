@@ -58,13 +58,13 @@ stages:
         csmFile: '$(System.DefaultWorkingDirectory)/infrastructure/backend/tfbackend.deploy.json'
         deploymentMode: 'Incremental'
 
-    - task: ARM Outputs@5
+    - task: ARM Outputs@6
       inputs:
         ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
         ConnectedServiceNameARM: 'AzureSubLcao'
         resourceGroupName: '$(resource_group_tfstate)'
         whenLastDeploymentIsFailed: 'fail'
-
+        
     - task: qetza.replacetokens.replacetokens-task.replacetokens@3
       displayName: 'Replace tokens in **/*.tfvars'
       inputs:
