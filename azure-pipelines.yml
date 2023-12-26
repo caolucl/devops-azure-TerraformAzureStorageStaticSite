@@ -3,9 +3,9 @@ trigger:
 
 variables:
 - group: azure
-  resource_group_tfstate: 'tfstate-sea-rg'
+  #resource_group_tfstate: 'tfstate-sea-rg'
   product: 'staticsite'
-  shortcode: 'lg'  
+  #shortcode: 'lg'  
   #armConnection: 'AzureLabLcao'
 
 stages:
