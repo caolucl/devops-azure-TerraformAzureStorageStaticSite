@@ -5,7 +5,7 @@ variables:
   resource_group_tfstate: 'tfstate-sea-rg'
   product: 'staticsite'
   shortcode: 'lg'  
-  armConnection: 'ConnectedServiceNameARM'
+  armConnection: 'AzureSubLcao'
 
 stages:
 - stage: validate
