@@ -5,7 +5,7 @@ variables:
   resource_group_tfstate: 'tfstate-sea-rg'
   product: 'staticsite'
   shortcode: 'lg'  
-  armConnection: 'AzureSubLcao'
+  armConnection: 'AzureLabLcao'
 
 stages:
 - stage: validate
@@ -49,7 +49,7 @@ stages:
       displayName: 'ARM Template deployment: Resource Group scope'
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'AzureSubLcao'
+        azureResourceManagerConnection: '$(armConnection)'
         subscriptionId: '2f858c57-6594-463c-b525-a5d7afec60cf'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resource_group_tfstate)'
@@ -61,7 +61,7 @@ stages:
     - task: ARM Outputs@6
       inputs:
         ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
-        ConnectedServiceNameARM: 'AzureSubLcao'
+        ConnectedServiceNameARM: '$(armConnection)'
         resourceGroupName: '$(resource_group_tfstate)'
         whenLastDeploymentIsFailed: 'fail'
         
