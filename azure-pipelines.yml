@@ -2,6 +2,7 @@ trigger:
 - none
 
 variables:
+- group: azure
   resource_group_tfstate: 'tfstate-sea-rg'
   product: 'staticsite'
   shortcode: 'lg'  
