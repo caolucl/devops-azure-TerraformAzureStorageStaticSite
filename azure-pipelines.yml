@@ -9,12 +9,6 @@ variables:
 
 stages:
 - stage: validate
-- task: ARM Outputs@6
-  inputs:
-    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
-    ConnectedServiceNameARM: 'AzureSubLcao'
-    resourceGroupName: '$(resource_group_tfstate)'
-    whenLastDeploymentIsFailed: 'fail'
 
   jobs:
   - job: Compliance
