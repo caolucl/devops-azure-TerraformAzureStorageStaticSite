@@ -6,7 +6,7 @@ variables:
   resource_group_tfstate: 'tfstate-sea-rg'
   product: 'staticsite'
   shortcode: 'lg'  
-  armConnection: 'AzureLabLcao'
+  #armConnection: 'AzureLabLcao'
 
 stages:
 - stage: validate
@@ -51,7 +51,7 @@ stages:
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: '$(armConnection)'
-        subscriptionId: '2f858c57-6594-463c-b525-a5d7afec60cf'
+        subscriptionId: '$(subscriptionId)'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resource_group_tfstate)'
         location: '$(location)'
@@ -159,7 +159,7 @@ stages:
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: '$(armConnection)'
-        subscriptionId: '2f858c57-6594-463c-b525-a5d7afec60cf'
+        subscriptionId: '$(subscriptionId)'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resource_group_tfstate)'
         location: '$(location)'
