@@ -186,7 +186,7 @@ stages:
         ContainerName: '$web'
 
 - stage: prod
-  dependsOn: dev
+  dependsOn: dev_terraform_apply
 
   variables:    
     location: 'southeastasia'        
